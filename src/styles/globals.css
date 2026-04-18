@@ -1,0 +1,414 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --brand-ink: #0f172a;
+    --brand-muted: #475569;
+    --brand-surface: #f8fafc;
+    --brand-accent: #7dd3fc;
+    --brand-accent-soft: #e0f2fe;
+    --font-display-condensed: "Arial Narrow", "Roboto Condensed",
+      "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-sans: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+    --font-brand: var(--font-sans);
+    --font-tech: var(--font-sans);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 24%);
+    color: var(--brand-ink);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .marketing-hero {
+    background:
+      radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 22%),
+      linear-gradient(180deg, #f2f8fb 0%, #ffffff 100%);
+  }
+
+  .marketing-hero-panel {
+    position: relative;
+    background:
+      linear-gradient(90deg, rgba(8, 21, 35, 0.96) 0%, rgba(8, 21, 35, 0.93) 48%, rgba(8, 21, 35, 0.3) 74%, rgba(8, 21, 35, 0.06) 100%),
+      linear-gradient(135deg, #0d1e31 0%, #102b40 100%);
+    box-shadow: 0 28px 55px rgba(15, 23, 42, 0.16);
+  }
+
+  .marketing-hero-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(8, 21, 35, 0.98) 0%, rgba(8, 21, 35, 0.92) 44%, rgba(8, 21, 35, 0.38) 72%, rgba(8, 21, 35, 0.08) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .marketing-hero-panel-immersive {
+    background: #152b3b;
+    box-shadow: none;
+    isolation: isolate;
+  }
+
+  .marketing-hero-panel-immersive::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(17, 24, 34, 0.96) 0%, rgba(17, 24, 34, 0.95) 18%, rgba(17, 24, 34, 0.92) 31%, rgba(17, 24, 34, 0.78) 43%, rgba(17, 24, 34, 0.42) 58%, rgba(17, 24, 34, 0.16) 74%, rgba(17, 24, 34, 0.04) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .marketing-hero-panel-immersive::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 30%, rgba(255,255,255,0.06), transparent 0 22%),
+      linear-gradient(180deg, rgba(9, 18, 28, 0.14) 0%, rgba(9, 18, 28, 0.26) 100%);
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .marketing-hero-media {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .marketing-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(8, 21, 35, 0.3) 0%, rgba(8, 21, 35, 0.04) 34%, rgba(8, 21, 35, 0) 100%);
+    pointer-events: none;
+  }
+
+  .marketing-hero-media-immersive::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(13, 24, 35, 0.34) 0%, rgba(13, 24, 35, 0.12) 42%, rgba(13, 24, 35, 0.03) 60%, rgba(13, 24, 35, 0) 72%);
+    pointer-events: none;
+  }
+
+  .marketing-hero-placeholder {
+    background:
+      radial-gradient(circle at 20% 26%, rgba(245, 158, 11, 0.38), transparent 0 18%),
+      radial-gradient(circle at 78% 32%, rgba(255, 255, 255, 0.16), transparent 0 24%),
+      linear-gradient(135deg, #1a3652 0%, #365977 48%, #7089a1 100%);
+  }
+
+.marketing-immersive-copy {
+  max-width: 860px;
+}
+
+  .marketing-immersive-breadcrumbs {
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+  }
+
+.marketing-immersive-title {
+  max-width: 860px;
+  font-family: var(--font-display-condensed);
+  font-size: clamp(2.35rem, 4.45vw, 4.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .marketing-immersive-body {
+    max-width: 960px;
+    font-family: var(--font-display-condensed);
+    font-size: clamp(0.95rem, 1.42vw, 1.36rem);
+    line-height: 1.24;
+    letter-spacing: -0.012em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  }
+
+  .marketing-pattern-surface {
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(circle at 0% 18%, rgba(245, 158, 11, 0.12), transparent 110px),
+      radial-gradient(circle at 100% 18%, rgba(245, 158, 11, 0.12), transparent 110px),
+      url("/bg-sth-new.jpg");
+    background-size: auto, auto, cover;
+    background-position: left 18% top 12%, right 18% top 12%, center top;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+}
+
+@media (min-width: 1024px) {
+  .marketing-immersive-copy {
+    max-width: 42%;
+  }
+
+  .marketing-immersive-title {
+    max-width: 100%;
+    font-size: 42px;
+    line-height: 0.94;
+  }
+
+  .marketing-immersive-body {
+    max-width: 100%;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+}
+
+/* Rich Text Description Styles */
+.product-description {
+  color: #475569;
+}
+
+.product-description > :first-child {
+  margin-top: 0 !important;
+}
+
+.product-description > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.product-description p {
+  margin: 0 0 1rem;
+}
+
+.product-description p + p {
+  margin-top: 0.25rem;
+}
+
+.product-description ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin: 0 0 1rem !important;
+}
+
+.product-description ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 0 0 1rem !important;
+}
+
+.product-description li {
+  margin: 0.35rem 0;
+}
+
+.product-description h1 {
+  font-size: 1.875rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  margin: 1.75rem 0 0.9rem !important;
+  color: #0f172a !important;
+}
+
+.product-description h2 {
+  font-size: 1.5rem !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 1.5rem 0 0.75rem !important;
+  color: #0f172a !important;
+}
+
+.product-description h3 {
+  font-size: 1.125rem !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  margin: 1.25rem 0 0.65rem !important;
+  color: #0f172a !important;
+}
+
+.product-description strong {
+  color: #0f172a !important;
+}
+
+.product-description a {
+  color: #0284c7 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em !important;
+}
+
+.product-description blockquote {
+  margin: 1.5rem 0 !important;
+  padding: 1rem 1.25rem !important;
+  border-left: 4px solid #7dd3fc !important;
+  border-radius: 0 1rem 1rem 0 !important;
+  background: #f8fafc !important;
+  color: #334155 !important;
+}
+
+.product-description hr {
+  margin: 1.5rem 0 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.product-description img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0 !important;
+  border-radius: 1rem;
+}
+
+.product-description table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 !important;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.product-description th,
+.product-description td {
+  border: 1px solid #e2e8f0 !important;
+  padding: 0.75rem 1rem !important;
+  text-align: left !important;
+}
+
+.product-description th {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
